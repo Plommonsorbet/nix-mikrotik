@@ -4,7 +4,7 @@ The goal of this project is to create a way to manage Mikrotik RouterOS routers 
 I'm not an expert with nix and I have no idea about how to go about creating a new nix project from scratch,
 so this project is a learning project.
 
-I'd be happy to have people get involved in this, Ideas / suggestions / PRs are super welcome!
+Very happy to have people get involved in this, Ideas / suggestions / PRs are welcome! You can reach me through github issues / PRs or on email [[mailto:isak@irq1.se][isak@irq1.se]].
 
 * Setup
 The usage of this project currently is very basic and something to be improved.
@@ -29,7 +29,7 @@ nix-build mikrotik.nix --arg mikrotik-config ./my-config.nix
 * Contributing
 
 * Goals
-** Mikrotik .rsc parser
+** Mikrotik config(.rsc) parser
 This is to be able to parse default router config for your router model or
 your current configuration setup as a starting point when migrating.
 
