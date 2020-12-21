@@ -1,0 +1,54 @@
+* Nix Mikrotik
+The goal of this project is to create a way to manage Mikrotik RouterOS routers using nix.
+
+I'm not an expert with nix and I have no idea about how to go about creating a new nix project from scratch,
+so this project is a learning project.
+
+I'd be happy to have people get involved in this, Ideas / suggestions / PRs are super welcome!
+
+* Setup
+The usage of this project currently is very basic and something to be improved.
+
+*** Download the repository
+#+BEGIN_SRC sh
+  git clone https://github.com/Plommonsorbet/nix-mikrotik
+  cd nix-mikrotik
+#+END_SRC
+
+*** Example usage
+**** Generate RouterOS configuration for examples/configuration.nix
+#+BEGIN_SRC sh
+nix-build mikrotik.nix
+#+END_SRC
+
+**** Generate RouterOS configuration for your own config.
+#+BEGIN_SRC sh
+nix-build mikrotik.nix --arg mikrotik-config ./my-config.nix
+#+END_SRC
+
+* Contributing
+
+* Goals
+** Mikrotik .rsc parser
+This is to be able to parse default router config for your router model or
+your current configuration setup as a starting point when migrating.
+
+** Deployment tool
+Build a tool for deploying this configuration to devices similar to [[https://github.com/NixOS/nixops][nixops]] or [[https://github.com/DBCDK/morph][morph]].
+
+** Diff tool
+Create a diff tool to compare a test build with the active device config.
+
+In the meanwhile a dirty script to just pull the build config and export the config from a device
+and run the binary diff would be a start. But I want to have to eventually build a system that
+is a bit smarter and can compare each configuration object. However this would need a parser before
+it can be done.
+
+** Testing
+Some kind of testing that it works. This could be done against a vm running specific versions of RouterOS.
+
+** Good Static Analysis
+The config that is generated should be verified with assertions and network relevant types to minimize
+the risk of a bad config being generated.
+
+This is especially important since routers are so essential and a small mistake could be catastrophic.
