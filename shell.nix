@@ -17,7 +17,7 @@ let
 in with nixpkgs;
 stdenv.mkDerivation {
   name = "nix-mikrotik-dev";
-  buildInputs = [ rust_nightly rustfmt ];
+  buildInputs = [ rust_nightly rustfmt openssl pkg-config];
   shellHook = ''
   '';
 }
