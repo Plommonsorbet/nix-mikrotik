@@ -32,13 +32,13 @@ in rec {
     version = "0.0.1";
     name = "mikrotik-router-${version}";
 
-    src = builtins.toFile "router-config.asc" (concatStringsSep "\n"
+    src = builtins.toFile "router-config.rsc" (concatStringsSep "\n"
       (flatten (mapAttrsToList (key: values: formatSection key values) rtr)));
 
     builder = builtins.toFile "builder.sh" ''
       source $stdenv/setup
       mkdir $out
-      install $src $out/router-config.asc
+      install $src $out/router-config.rsc
     '';
   };
 }
